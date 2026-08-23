@@ -1,8 +1,28 @@
-/* Marketplace listing imagery: real-photo treatment, mobile-safe aspect ratio */
+/* Marketplace listing imagery + mobile-safe listing modal */
 .thumb.court-photo{position:relative;aspect-ratio:16/10;min-height:0;overflow:hidden;background:#dfe8dc;border-radius:18px 18px 0 0}
-.thumb.court-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .25s ease}
-.card:hover .thumb.court-photo img{transform:scale(1.025)}
+.thumb.court-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 .thumb.court-photo span{position:absolute;left:14px;top:14px;padding:6px 9px;border-radius:999px;background:rgba(8,31,22,.82);color:#fff;font-size:11px;letter-spacing:.12em;font-weight:700}
 .thumb.court-photo.photo-fallback{background:linear-gradient(135deg,#dfe8dc,#c7d5c4)}
-.listing-photo{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;margin:0 0 22px}
-@media (max-width:600px){.thumb.court-photo{aspect-ratio:4/3;border-radius:14px 14px 0 0}.thumb.court-photo span{font-size:10px}.listing-photo{max-height:300px;border-radius:12px}}
+
+/* index.html uses .modalcard; the old CSS incorrectly targeted .modalbox. */
+.modal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(3,18,12,.72);align-items:center;justify-content:center;padding:18px;overscroll-behavior:contain}
+.modalcard{position:relative;width:min(680px,100%);max-height:min(88vh,820px);overflow:auto;-webkit-overflow-scrolling:touch;background:#fff;color:var(--ink);border-radius:24px;padding:28px;box-shadow:0 30px 80px rgba(0,0,0,.28);overscroll-behavior:contain}
+.modalcard .close{position:absolute;right:14px;top:10px;z-index:3;width:44px;height:44px;border:0;border-radius:50%;background:#fff;color:var(--ink);font-size:32px;line-height:1;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.modalcard h2{font-size:clamp(32px,6vw,48px);line-height:.95;letter-spacing:-2px;margin:8px 0 12px;padding-right:40px}
+.modalcard h3{font-size:28px;margin:18px 0}
+.modalcard p{font-size:16px;line-height:1.5;color:#52615a}
+.modalcard hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+.listing-photo{display:block;width:100%;aspect-ratio:16/10;max-height:420px;object-fit:cover;border-radius:16px;margin:0 0 22px;background:#dfe8dc}
+.modalcard .wide{min-height:54px;font-size:17px}
+body.modal-open{overflow:hidden}
+
+@media (max-width:600px){
+  .thumb.court-photo{aspect-ratio:4/3;border-radius:14px 14px 0 0}
+  .thumb.court-photo span{font-size:10px}
+  .modal{padding:10px;align-items:flex-end}
+  .modalcard{width:100%;max-height:88vh;border-radius:22px 22px 14px 14px;padding:20px 18px 18px}
+  .modalcard .close{right:10px;top:8px;width:42px;height:42px}
+  .listing-photo{aspect-ratio:4/3;max-height:300px;border-radius:14px;margin-bottom:18px}
+  .modalcard h2{font-size:34px;letter-spacing:-1.5px}
+  .modalcard h3{font-size:25px}
+}
