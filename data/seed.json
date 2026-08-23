@@ -1,0 +1,6 @@
+[
+{"court_id":"COURT-EU-0007","manufacturer":"JUBO","model":"Panoramic","country":"Sweden","year_installed":2022,"type":"Outdoor","grade":"A","glass_thickness_mm":12,"asking_price_eur":9900,"status":"demo"},
+{"court_id":"COURT-EU-0008","manufacturer":"AFP","model":"Panoramic","country":"Sweden","year_installed":2021,"type":"Outdoor","grade":"A","glass_thickness_mm":12,"asking_price_eur":8950,"status":"demo"},
+{"court_id":"COURT-EU-0012","manufacturer":"Manza Sport","model":"Standard","country":"Finland","year_installed":2020,"type":"Indoor","grade":"B","glass_thickness_mm":10,"asking_price_eur":8200,"status":"demo"},
+{"court_id":"COURT-EU-0018","manufacturer":"Padel Total","model":"Standard","country":"Germany","year_installed":2019,"type":"Outdoor","grade":"B","glass_thickness_mm":10,"asking_price_eur":7900,"status":"demo"}
+]
