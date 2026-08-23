@@ -1,7 +1,4 @@
-/* Mobile layout — keep the document fixed to the real layout viewport.
-   IMPORTANT: never size body from visualViewport.width. On iOS/Chrome that
-   value becomes narrower while the browser is zoomed/scrolled and leaves
-   the page permanently shifted after a horizontal swipe. */
+/* Mobile layout: keep the document at the real layout viewport width. */
 *,*::before,*::after{box-sizing:border-box}
 html,body{
   width:100%!important;
