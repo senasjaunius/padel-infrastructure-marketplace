@@ -1,16 +1,103 @@
 /* Responsive stability fixes for phones/tablets */
-html,body{max-width:100%;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100%;max-width:100%;margin:0;overflow-x:hidden}
+img,svg,video,iframe{max-width:100%}
+
 @media(max-width:850px){
-  .section,.dark,.valuation,.hero{width:100%;max-width:100%;min-width:0}
-  .dark,.valuation{grid-template-columns:minmax(0,1fr);gap:35px}
-  .dark>*,.valuation>*{min-width:0;max-width:100%}
-  .dark form{width:100%;max-width:100%;min-width:0;padding:24px}
-  .dark form input,.dark form select,.dark form textarea{width:100%;max-width:100%;min-width:0}
-  .row{grid-template-columns:minmax(0,1fr);min-width:0}
-  .row>*{min-width:0;max-width:100%}
-  .buttons{flex-wrap:wrap}
-  .buttons>*{max-width:100%}
-  .hero-asset{min-width:0;max-width:100%}
-  .sectiontitle,.filters{min-width:0;max-width:100%}
-  .filters input,.filters select{min-width:0;max-width:100%}
+  .section,.dark,.valuation,.hero{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    overflow-x:hidden;
+  }
+
+  .dark,.valuation{
+    grid-template-columns:minmax(0,1fr);
+    gap:35px;
+    width:100%;
+  }
+
+  .dark>*,.valuation>*{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+
+  .dark form{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    margin:0;
+    padding:24px;
+    overflow:hidden;
+  }
+
+  .dark form h3,
+  .dark form small{
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  .dark form input,
+  .dark form select,
+  .dark form textarea,
+  .dark form button{
+    display:block;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+  }
+
+  .dark form textarea{
+    resize:vertical;
+  }
+
+  .row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    width:100%;
+    min-width:0;
+    gap:12px;
+  }
+
+  .row>*{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+
+  .buttons{
+    flex-wrap:wrap;
+    width:100%;
+    min-width:0;
+  }
+
+  .buttons>*{
+    max-width:100%;
+  }
+
+  .hero-asset{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+
+  .sectiontitle,.filters{
+    width:100%;
+    min-width:0;
+    max-width:100%;
+  }
+
+  .filters{
+    overflow:hidden;
+  }
+
+  .filters input,.filters select{
+    min-width:0;
+    max-width:100%;
+    width:100%;
+    box-sizing:border-box;
+  }
 }
