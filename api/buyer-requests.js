@@ -8,20 +8,9 @@ export default async function handler(req,res){
   const b=typeof req.body==='string'?JSON.parse(req.body):req.body||{};
   const name=String(b.company||b.name||'').trim(),email=String(b.email||'').trim(),country=String(b.country||'').trim();
   if(!name||!email||!country)return res.status(400).json({error:'Name/company, email and country are required'});
-  const payload={
-   name,email,country,
-   city:String(b.city||'').trim()||null,
-   court_count:Math.max(1,Number(b.court_count||1)),
-   location_notes:null,
-   indoor_outdoor:String(b.indoor_outdoor||'').trim()||null,
-   condition:String(b.condition||'').trim()||null,
-   budget_eur:b.max_budget_eur?Number(b.max_budget_eur):null,
-   preferred_manufacturer:String(b.manufacturer||'').trim()||null,
-   needed_by:b.needed_by||null,
-   transport_installation:b.transport_installation==='true',
-   details:String(b.details||'').trim()||null,
-   status:'new'
-  };
+  const extra=[b.model?`Preferred model: ${String(b.model).trim()}`:'',b.preferred_year_from?`Minimum year: ${b.preferred_year_from}`:'',b.preferred_year_to?`Maximum year: ${b.preferred_year_to}`:''].filter(Boolean).join('\n');
+  const details=[String(b.details||'').trim(),extra].filter(Boolean).join('\n\n')||null;
+  const payload={name,email,country,city:String(b.city||'').trim()||null,court_count:Math.max(1,Number(b.court_count||1)),location_notes:null,indoor_outdoor:String(b.indoor_outdoor||'').trim()||null,condition:String(b.condition||'').trim()||null,budget_eur:b.max_budget_eur?Number(b.max_budget_eur):null,preferred_manufacturer:String(b.manufacturer||'').trim()||null,needed_by:b.needed_by||null,transport_installation:b.transport_installation==='true',details,status:'new'};
   const headers={apikey:key,Authorization:`Bearer ${key}`,'Content-Type':'application/json',Prefer:'return=representation'};
   const r=await fetch(`${base}/rest/v1/buyer_requests`,{method:'POST',headers,body:JSON.stringify(payload)});
   const text=await r.text();if(!r.ok)return res.status(r.status).send(text);
