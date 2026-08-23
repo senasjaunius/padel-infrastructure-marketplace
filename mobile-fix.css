@@ -1,45 +1,19 @@
-/* Mobile layout: keep the document at the real layout viewport width. */
+/* Mobile-first polish and viewport stability — loaded last so it overrides desktop rules. */
 *,*::before,*::after{box-sizing:border-box}
-html,body{
-  width:100%!important;
-  max-width:100%!important;
-  min-width:0!important;
-  margin:0!important;
-  padding:0!important;
-  overflow-x:hidden!important;
-  overscroll-behavior-x:none!important;
-  -webkit-text-size-adjust:100%!important;
-}
+html,body{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important;overflow-x:hidden!important;overscroll-behavior-x:none!important;-webkit-text-size-adjust:100%!important}
 html{touch-action:pan-y!important}
-body{
-  position:relative!important;
-  left:0!important;
-  right:0!important;
-  transform:none!important;
-  touch-action:pan-y!important;
+body{position:relative!important;left:0!important;right:0!important;transform:none!important;touch-action:pan-y!important}
+.nav,.hero,.section,section.dark,.valuation,footer{width:100%!important;max-width:100%!important;min-width:0!important;margin-left:0!important;margin-right:0!important;overflow-x:hidden!important}
+img,svg,video,iframe{max-width:100%;height:auto}
+@media(max-width:850px){
+.nav{height:68px!important;padding:0 18px!important;gap:12px!important;justify-content:space-between!important}.nav .brand{font-size:18px!important;gap:7px!important;letter-spacing:-.5px!important;min-width:0!important}.nav .logo{width:34px!important;height:34px!important;border-radius:10px!important;font-size:16px!important}.nav nav{display:none!important}.nav .darkbtn{padding:11px 15px!important;border-radius:10px!important;font-size:13px!important;white-space:nowrap!important}
+.hero{display:block!important;min-height:0!important;padding:54px 20px 60px!important}.hero>div,.hero-asset{width:100%!important;min-width:0!important;max-width:100%!important}.hero .eyebrow{font-size:10px!important;letter-spacing:2px!important;line-height:1.45!important}.hero h1{font-size:clamp(48px,15vw,64px)!important;line-height:.9!important;letter-spacing:-3.5px!important;margin:18px 0 22px!important}.hero p{font-size:17px!important;line-height:1.45!important;margin:0!important;max-width:none!important}.buttons{display:flex!important;flex-direction:column!important;gap:10px!important;margin-top:26px!important;width:100%!important}.buttons>*{width:100%!important;max-width:none!important;min-height:52px!important;padding:15px 18px!important}.metrics{grid-template-columns:1fr 1fr!important;gap:22px 16px!important;margin-top:44px!important}.metrics>div:last-child{grid-column:1/-1}.metrics b{font-size:12px!important}.metrics small{font-size:13px!important;margin-top:5px!important}.hero-asset{margin-top:42px!important;padding:18px!important;border-radius:18px!important}.asset-head span{font-size:12px!important;letter-spacing:1.5px!important}.asset-head strong,.grade{width:38px!important;height:38px!important}.fakecourt{height:190px!important;margin:16px 0!important}.fakecourt:before{inset:22px!important}.fakecourt:after{top:22px!important;bottom:22px!important}.fakecourt i{left:22px!important;right:22px!important}.hero-asset h3{font-size:21px!important}.hero-asset p{font-size:13px!important;line-height:1.4!important}
+.section{padding:64px 20px!important}.section h2{font-size:clamp(38px,11vw,52px)!important;letter-spacing:-2.5px!important;line-height:.95!important;margin:12px 0 30px!important}.sectiontitle{display:block!important;width:100%!important}.sectiontitle .filters{margin-top:22px!important}.filters{display:grid!important;grid-template-columns:1fr!important;gap:9px!important;width:100%!important;overflow:visible!important}.filters input,.filters select{width:100%!important;min-width:0!important;max-width:100%!important;padding:14px!important;font-size:16px!important}
+.cards{display:grid!important;grid-template-columns:1fr!important;gap:16px!important;width:100%!important}.card{width:100%!important;min-width:0!important;border-radius:16px!important}.thumb{height:180px!important}.cardbody{padding:17px!important}.card h3{font-size:21px!important;margin:12px 0 7px!important}.meta{font-size:14px!important;min-height:0!important}.cardfoot{margin-top:16px!important}
+.steps{grid-template-columns:1fr!important;gap:1px!important}.steps article{padding:25px!important;min-height:0!important}.steps h3{font-size:24px!important;margin:12px 0!important}
+section.dark,.valuation{display:block!important;grid-template-columns:none!important;padding-left:20px!important;padding-right:20px!important}.dark>div,.dark>form,.valuation>div,.calc{width:100%!important;min-width:0!important;max-width:100%!important}.dark>div>p{font-size:17px!important}.ticks{gap:12px!important;margin-top:28px!important}.ticks span{font-size:15px!important}.dark form{margin:34px 0 0!important;padding:22px!important;border-radius:18px!important;overflow:hidden!important}.dark form h3{font-size:29px!important;margin-bottom:20px!important}.dark form input,.dark form select,.dark form textarea,.dark form button{width:100%!important;max-width:100%!important;min-width:0!important;font-size:16px!important}.dark form .row{display:grid!important;grid-template-columns:1fr!important;gap:0!important;width:100%!important}.dark form .check{display:flex!important;align-items:center!important;gap:9px!important;width:100%!important;font-size:14px!important}.dark form .check input{width:20px!important;min-width:20px!important;max-width:20px!important;height:20px!important;margin:0!important}.dark form textarea{min-height:120px!important}.valuation{padding-top:64px!important;padding-bottom:64px!important}.calc{padding:22px!important;border-radius:18px!important}.calc #estimate{font-size:30px!important}
+.servicegrid{grid-template-columns:1fr!important}.servicegrid>div{padding:25px!important;min-height:0!important}.servicegrid h3{font-size:23px!important}
+.modal{padding:12px!important;align-items:flex-end!important}.modalbox{max-width:none!important;width:100%!important;max-height:88vh!important;overflow:auto!important;border-radius:18px!important;padding:24px!important}.modalbox h2{font-size:36px!important;letter-spacing:-1.5px!important}
+footer{padding:32px 20px!important;display:flex!important;align-items:flex-start!important;flex-direction:column!important;gap:14px!important}footer .brand{font-size:18px!important}
 }
-.nav,.hero,.section,section.dark,.valuation,footer{
-  width:100%!important;
-  max-width:100%!important;
-  min-width:0!important;
-  margin-left:0!important;
-  margin-right:0!important;
-  overflow-x:hidden!important;
-}
-@media(max-width:1100px){
- .nav{padding-left:6vw!important;padding-right:6vw!important}
- .hero{display:block!important;padding:65px 6vw!important}
- .hero>div,.dark>div,.dark>form,.valuation>div{width:100%!important;max-width:100%!important;min-width:0!important}
- section.dark{display:block!important;padding-left:6vw!important;padding-right:6vw!important}
- section.dark>form{margin-top:35px!important;padding:24px!important}
- section.dark input,section.dark select,section.dark textarea,section.dark button{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box!important;font-size:16px!important}
- section.dark .row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;gap:12px!important}
- section.dark .row>*{width:100%!important;min-width:0!important}
- section.dark .check{display:flex!important;align-items:center;gap:8px;width:100%!important}
- section.dark .check input{width:20px!important;min-width:20px!important;max-width:20px!important;height:20px}
- .buttons{flex-wrap:wrap;width:100%;min-width:0}
- .hero-asset{width:100%;min-width:0;max-width:100%}
- .sectiontitle,.filters{width:100%;min-width:0;max-width:100%}
- .filters{overflow:hidden}
- .filters input,.filters select{min-width:0;max-width:100%;width:100%;box-sizing:border-box}
-}
+@media(max-width:380px){.nav{padding-left:14px!important;padding-right:14px!important}.nav .brand{font-size:16px!important}.nav .darkbtn{padding:10px 12px!important;font-size:12px!important}.hero{padding-left:16px!important;padding-right:16px!important}.section,section.dark,.valuation{padding-left:16px!important;padding-right:16px!important}.hero h1{font-size:46px!important}.metrics{grid-template-columns:1fr!important}.metrics>div:last-child{grid-column:auto}}
