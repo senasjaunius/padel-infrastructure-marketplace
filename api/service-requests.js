@@ -1,12 +1,12 @@
 export default async function handler(req,res){
- if(req.method!=='POST') return res.status(405).json({error:'Method not allowed'});
+ if(req.method!=='POST')return res.status(405).json({error:'Method not allowed'});
  const base=process.env.NEXT_PUBLIC_SUPABASE_URL,key=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
  if(!base||!key)return res.status(500).json({error:'Supabase environment variables are missing'});
  try{
   const b=typeof req.body==='string'?JSON.parse(req.body):req.body||{};
-  const email=String(b.email||'').trim(),country=String(b.country||'').trim(),service=String(b.service||'').trim();
-  if(!email||!country||!service)return res.status(400).json({error:'Service, country and email are required'});
-  const payload={name:String(b.name||'').trim()||null,email,country,city:String(b.city||'').trim()||null,service,court_count:b.court_count?Math.max(1,Number(b.court_count)):null,details:String(b.details||'').trim()||null};
+  const email=String(b.email||'').trim(),serviceType=String(b.service||'').trim(),company=String(b.name||'').trim();
+  if(!email||!serviceType||!company)return res.status(400).json({error:'Name/company, service and email are required'});
+  const payload={company,email,country:String(b.country||'').trim()||null,city:String(b.city||'').trim()||null,service_type:serviceType,court_count:b.court_count?Math.max(1,Number(b.court_count)):null,details:String(b.details||'').trim()||null};
   const headers={apikey:key,Authorization:`Bearer ${key}`,'Content-Type':'application/json',Prefer:'return=minimal'};
   const r=await fetch(`${base}/rest/v1/service_requests`,{method:'POST',headers,body:JSON.stringify(payload)});
   const text=await r.text();if(!r.ok)return res.status(r.status).send(text);
