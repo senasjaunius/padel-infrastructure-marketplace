@@ -1,0 +1,16 @@
+/* Responsive stability fixes for phones/tablets */
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:850px){
+  .section,.dark,.valuation,.hero{width:100%;max-width:100%;min-width:0}
+  .dark,.valuation{grid-template-columns:minmax(0,1fr);gap:35px}
+  .dark>*,.valuation>*{min-width:0;max-width:100%}
+  .dark form{width:100%;max-width:100%;min-width:0;padding:24px}
+  .dark form input,.dark form select,.dark form textarea{width:100%;max-width:100%;min-width:0}
+  .row{grid-template-columns:minmax(0,1fr);min-width:0}
+  .row>*{min-width:0;max-width:100%}
+  .buttons{flex-wrap:wrap}
+  .buttons>*{max-width:100%}
+  .hero-asset{min-width:0;max-width:100%}
+  .sectiontitle,.filters{min-width:0;max-width:100%}
+  .filters input,.filters select{min-width:0;max-width:100%}
+}
