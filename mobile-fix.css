@@ -30,14 +30,19 @@ img,svg,video,iframe{max-width:100%;height:auto}
 .card h3{font-size:22px;line-height:1.1;margin:13px 0 7px}
 .meta{font-size:14px;line-height:1.45;min-height:0}
 .cardfoot{margin-top:16px;gap:10px}
-.dark-section{width:100%;padding:64px 20px;display:block;overflow:hidden}
+.dark-section{width:100%;max-width:100%;min-height:0 !important;height:auto !important;padding:64px 20px;display:block;overflow:hidden;position:relative}
 .dark-section>div,.dark-section>form{width:100%;max-width:100%;min-width:0}
-.dark-section h2{font-size:clamp(40px,11vw,58px);line-height:.95;letter-spacing:-3px}
-.dark-section>div>p{font-size:17px;line-height:1.45}
+.dark-section h2{font-size:clamp(40px,11vw,58px);line-height:.95;letter-spacing:-3px;margin-top:16px;margin-bottom:24px}
+.dark-section>div>p{font-size:17px;line-height:1.45;margin-top:0}
+#valuation.dark-section{padding-top:58px;padding-bottom:42px;margin:0 !important}
+#valuation.dark-section>div{margin:0 !important;padding:0 !important}
+#valuation.dark-section h2{margin-bottom:24px}
+#sell.dark-section{padding-top:52px;margin-top:0 !important}
 .dark-section form{margin-top:30px;padding:22px;border-radius:18px;overflow:hidden}
 .dark-section form .two{display:grid;grid-template-columns:1fr;gap:0}
 .dark-section form input,.dark-section form select,.dark-section form textarea,.dark-section form button{width:100%;min-width:0;max-width:100%;font-size:16px}
 .dark-section form textarea{min-height:120px}
+footer{width:100%;max-width:100%;margin:0;padding:42px 20px;overflow:hidden}
 @media(max-width:380px){
  .site-header{padding:0 14px}.site-header .brand{font-size:16px}.site-header .limebtn{padding:11px 13px;font-size:13px}
  .hero{padding-left:16px;padding-right:16px}.hero h1{font-size:46px;letter-spacing:-3px}.hero-points{grid-template-columns:1fr;gap:16px}
